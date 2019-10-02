@@ -41,5 +41,6 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
   make && make install
 
 FROM base
+LABEL version="1.0" maintainer="Herman Banken <hermanbanken@gmail.com>" repository="https://github.com/hermanbanken/nginx-upstream-dynamic-servers"
 # Replace bundled NGINX with patched NGINX
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
